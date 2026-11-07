@@ -1,4 +1,4 @@
-﻿# Set up Roundtable on a Mac
+# Set up Roundtable on a Mac
 
 ## Give your Codex this request
 
@@ -6,7 +6,7 @@
 
 You do not need to run an installer. Your Codex should inspect, adapt, execute, and verify the setup with you. It can handle ordinary commands; you may need to complete GitHub access, CLI sign-in, or a macOS permission prompt yourself.
 
-The repository is private. Accept the owner's GitHub invitation first. If cloning is inconvenient, download its ZIP while signed into GitHub, extract it into a permanent folder, and open that folder in VS Code. Never run the app from inside the ZIP or a temporary download extraction.
+The repository is public; no invitation or GitHub login is required to download it. If cloning is inconvenient, download its ZIP, extract it into a permanent folder, and open that folder in VS Code. Never run the app from inside the ZIP or a temporary download extraction.
 
 ## Instructions for the recipient's Codex
 
@@ -19,7 +19,7 @@ This is a local Node server and browser interface for the installed Codex and Cl
 ### 2. Inspect this Mac and reuse what works
 
 - Identify macOS version, CPU architecture, existing checkout, and the user's preferred permanent location. If none is specified, use `~/Applications/roundtable`. Inspect any existing destination before cloning; do not overwrite it.
-- Clone using the user's existing GitHub access, for example `gh repo clone Kaks221/roundtable ~/Applications/roundtable`. If GitHub CLI isn't installed, use existing Git credentials or the downloaded checkout; installing another tool is not required solely to download the app.
+- Clone with `git clone https://github.com/Kaks221/roundtable.git ~/Applications/roundtable`, or use the downloaded checkout. GitHub CLI and GitHub authentication are not required.
 - Check `node --version`, `command -v node`, `codex --version`, `command -v codex`, `claude --version`, and `command -v claude` in the working VS Code terminal. Node must be 22 or newer. Record `node -p process.execPath` and the current PATH for background startup later.
 - Check `codex login status` and `claude auth status`. Reuse existing ChatGPT and Claude subscription authentication. If necessary, let the human complete `codex login` or `claude auth login` interactively. Never copy tokens into files.
 - If a prerequisite is missing, consult its current official installation instructions and install only what is missing. Preserve the user's Node manager and working CLI installations. Do not silently switch models, enable full access, alter global agent instructions, or create project-specific permission files.

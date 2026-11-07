@@ -6,7 +6,7 @@ A local three-way conversation between you, Codex, and Claude Code. Runs the ins
 
 **Start with [SETUP.md](SETUP.md).** It includes a copy-and-paste prompt for the recipient's Codex and a complete macOS setup procedure.
 
-Give the repository link and setup guide to your Codex. It will inspect the code and your existing CLI installations, set up the app step by step, troubleshoot any failures, and configure startup at login. There is no installer script to run blindly. Private repository access requires an invitation from the owner.
+Give the repository link and setup guide to your Codex. It will inspect the code and your existing CLI installations, set up the app step by step, troubleshoot any failures, and configure startup at login. There is no installer script to run blindly. The repository is public; no invitation is needed.
 
 For manual startup on Windows or macOS, run `npm start` in the repository folder, open **http://localhost:3210**, and leave that terminal running. Requires Node.js 22+, Codex CLI, and Claude Code CLI with your own subscription logins. No `npm install` or API key is needed. Existing Windows automatic startup is unaffected.
 
