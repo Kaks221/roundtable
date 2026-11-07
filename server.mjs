@@ -82,7 +82,7 @@ const server = http.createServer(async (req, res) => {
       await closeAgents(Object.values(room.agents).map(agent => agent.session).filter(Boolean));
       store.rooms.delete(room.id);
       publish({ type: 'deleted', roomId: room.id });
-      return json(res, 200, { ok: true, message: 'Conversation moved to the Recycle Bin. You can recover it there.' });
+      return json(res, 200, { ok: true, message: 'Conversation moved to the Recycle Bin or Trash. You can recover it there.' });
     }
     if (url.pathname === '/api/message') {
       const text = String(input.text || '').trim();

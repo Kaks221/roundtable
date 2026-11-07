@@ -2,16 +2,13 @@
 
 A local three-way conversation between you, Codex, and Claude Code. Runs the installed CLIs under their existing subscription logins; no API SDK or API key is required.
 
-## Start
+## Setup on another laptop
 
-In a VS Code terminal:
+**Start with [SETUP.md](SETUP.md).** It includes a copy-and-paste prompt for the recipient's Codex and a complete macOS setup procedure.
 
-```powershell
-cd C:\Users\KBrob\Documents\Coding\roundtable
-npm start
-```
+Give the repository link and setup guide to your Codex. It will inspect the code and your existing CLI installations, set up the app step by step, troubleshoot any failures, and configure startup at login. There is no installer script to run blindly. Private repository access requires an invitation from the owner.
 
-Open **http://localhost:3210**. Keep that terminal running. Press Ctrl+C in it to shut down. Requires Node.js 22+, Codex CLI, and Claude Code CLI. There are no npm dependencies to install.
+For manual startup on Windows or macOS, run `npm start` in the repository folder, open **http://localhost:3210**, and leave that terminal running. Requires Node.js 22+, Codex CLI, and Claude Code CLI with your own subscription logins. No `npm install` or API key is needed. Existing Windows automatic startup is unaffected.
 
 ## Use
 
@@ -22,7 +19,7 @@ Open **http://localhost:3210**. Keep that terminal running. Press Ctrl+C in it t
 - The two CLI calls run concurrently, with both prompts prepared before either starts. Independent turns are for discussion and inspection; request a single agent for implementation.
 - Messages sent while a response is running are saved for the next requested turn. Response buttons are disabled until the current turn or pair finishes.
 - **Stop** terminates the active CLI process tree and cancels any unstarted answer in the pair. It does not undo file edits already made.
-- **New project** starts a separate conversation. The folder for an existing conversation is fixed so a resumed CLI cannot accidentally use a different project.
+- **New conversation** starts a separate conversation. The folder for an existing conversation is fixed so a resumed CLI cannot accidentally use a different project.
 
 These are fresh native agent sessions, not mirrors of conversations already open in your terminals. Each retains its own native session ID and receives new shared messages. Failed or stopped turns reset that agent's session and replay the transcript next time to avoid losing context.
 

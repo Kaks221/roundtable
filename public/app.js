@@ -22,7 +22,7 @@ function showRoomMenu(event, room, button) {
   menu.style.left = `${Math.max(8, Math.min(x, innerWidth - menu.offsetWidth - 8))}px`;
   menu.style.top = `${Math.max(8, Math.min(y, innerHeight - menu.offsetHeight - 8))}px`;
   $('#delete-room').disabled = state.runtime.active?.room === room.id;
-  $('#delete-room').title = $('#delete-room').disabled ? 'Stop the active response first' : 'Move this transcript to the Recycle Bin';
+  $('#delete-room').title = $('#delete-room').disabled ? 'Stop the active response first' : 'Move this transcript to the Recycle Bin or Trash';
   $('#rename-room').focus();
 }
 const escapeHTML = text => String(text).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
