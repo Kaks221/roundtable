@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Roundtable — You, Codex & Claude</title><link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="/" aria-label="Roundtable home"><span class="brand-icon">◌</span> roundtable<span class="local">LOCAL</span></a>
+    <button id="new-chat" class="new-chat"><span>＋</span> New conversation</button>
+    <p class="section-label">YOUR CONVERSATIONS</p>
+    <nav id="rooms" aria-label="Saved conversations"></nav>
+    <div class="sidebar-bottom"><span class="local-dot"></span> Runs on your computer<p>One room. Three perspectives.</p></div>
+  </aside>
+  <main>
+    <section id="conversation" aria-label="Conversation" tabindex="0">
+      <div id="welcome">
+        <div class="welcome-symbol"><span>◌</span><span>✳</span></div>
+        <p class="eyebrow">YOU + CODEX + CLAUDE CODE</p>
+        <h2>Good ideas deserve<br>a second perspective.</h2>
+        <p class="welcome-description">Bring a question, a project, or an unfinished thought.<br>Think it through together, in one conversation.</p>
+        <div class="suggestions"><button data-prompt="Help me think through the architecture of this project. Read the relevant files, then share your perspectives. Don't edit anything yet."><span>01</span> Explore this project <b>↗</b></button><button data-prompt="I'd like to brainstorm an idea with both of you. I'll describe it next; help me challenge assumptions and refine it."><span>02</span> Think through an idea <b>↗</b></button><button data-prompt="Review this project's design. Identify the main tradeoffs and share your own perspective. Don't edit files."><span>03</span> Get two perspectives <b>↗</b></button></div>
+      </div>
+      <div id="messages"></div>
+    </section>
+    <div class="composer-area">
+      <div class="turn-bar"><span id="turn-status" role="status">Your turn</span><button id="stop" class="stop" hidden>&#9632; Stop</button></div>
+      <div class="response-controls" aria-label="Choose who responds"><button id="ask-codex" class="ask codex" type="button">Ask Codex</button><button id="ask-claude" class="ask claude" type="button">Ask Claude</button><button id="ask-both" class="ask both" type="button">&#9707; Ask both</button></div>
+      <form id="composer"><textarea id="message" aria-label="Message" placeholder="Add to the conversation..." rows="2" maxlength="100000"></textarea><div class="composer-footer"><span class="keyboard-hint">Enter to send &middot; Shift + Enter for a new line</span><button id="send" type="submit" aria-label="Send message">&#8593;</button></div></form>
+      <div class="context-bar" aria-label="Agent context usage"><div><strong>Codex context</strong><span id="codex-context" role="status">Context unavailable</span><progress id="codex-meter" max="100" value="0" hidden aria-label="Codex last reported context usage"></progress><small id="codex-compacted" hidden></small></div><div><strong>Claude context</strong><span id="claude-context" role="status">Context unavailable</span><progress id="claude-meter" max="100" value="0" hidden aria-label="Claude last reported context usage"></progress><small id="claude-compacted" hidden></small></div></div>
+      <div class="connection-bar"><span id="codex-status">○ Codex · checking</span><span id="claude-status">○ Claude · checking</span><button id="recheck" class="text-button">Recheck logins</button></div>
+      <p id="notice" role="alert" hidden></p>
+    </div>
+  </main>
+  <dialog id="project-dialog"><form id="project-form"><div class="dialog-heading"><span class="eyebrow">NEW CONVERSATION</span><button type="button" id="close-dialog" class="text-button" aria-label="Close">✕</button></div><h2>Bring your project.</h2><p>Both agents will work from this folder, using their existing CLI settings.</p><label for="conversation-name">Conversation name (optional)</label><input id="conversation-name" maxlength="120" placeholder="Name your conversation" autocomplete="off"><label for="project">Project folder</label><input id="project" required placeholder="C:\Users\you\Documents\project" autocomplete="off"><p class="dialog-hint">Conversations save automatically. Start a new conversation to switch projects.</p><button class="primary" type="submit">Open the table <span>↗</span></button><p id="project-error" role="alert"></p></form></dialog>
+  <div id="room-menu" class="room-menu" role="menu" aria-label="Conversation actions" hidden><button id="rename-room" type="button" role="menuitem">Rename conversation</button><button id="delete-room" type="button" role="menuitem">Delete conversation</button></div>
+<dialog id="rename-dialog"><form id="rename-form"><h2>Rename conversation</h2><label for="rename-name">Conversation name</label><input id="rename-name" required maxlength="120" autocomplete="off"><p id="rename-error" role="alert"></p><button id="save-rename" class="primary" type="submit">Save name</button><button id="cancel-rename" class="text-button" type="button">Cancel</button></form></dialog>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>
